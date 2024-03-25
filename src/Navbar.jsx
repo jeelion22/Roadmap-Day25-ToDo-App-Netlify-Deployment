@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-function Navbar({ toDoData, handleDelete, handleEdit }) {
+function Navbar({ toDoData, handleDelete, handleEdit, handleStatus }) {
   console.log(toDoData);
   return (
     <div className="container">
@@ -30,6 +30,7 @@ function Navbar({ toDoData, handleDelete, handleEdit }) {
                   cardInfo={cardInfo}
                   handleDelete={handleDelete}
                   handleEdit={handleEdit}
+                  handleStatus={handleStatus}
                 />
               </div>
             );

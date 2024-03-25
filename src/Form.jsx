@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
-function Form({ getFormData }) {
-  const [values, setValues] = useState({ toDoName: "", toDoDescription: "" });
+function Form({ getFormData, values, setValues }) {
+ 
 
   const handleChange = (event) => {
     const { name, value } = event.target;

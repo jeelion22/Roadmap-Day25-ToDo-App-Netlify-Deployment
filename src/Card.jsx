@@ -1,7 +1,17 @@
 import { useState } from "react";
 
-function Card({ cardInfo, handleDelete, handleEdit }) {
-  const handleChange = () => {};
+function Card({ cardInfo, handleDelete, handleEdit, handleStatus }) {
+
+  const [select, setSelect] = useState("Not Completed")
+  
+  const handleChange = (e)=> {
+    const selectedStatus = e.target.value;
+    setSelect(selectedStatus)
+
+   
+
+    handleStatus({...cardInfo, status: selectedStatus})
+  }
 
   return (
     <div className="card mb-4" style={{ width: "22rem", height: "11rem" }}>
@@ -44,6 +54,7 @@ function Card({ cardInfo, handleDelete, handleEdit }) {
           </button>
         </div>
       </div>
+      <div>status: {select}</div>
     </div>
   );
 }
