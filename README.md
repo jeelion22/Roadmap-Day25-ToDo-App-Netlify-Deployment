@@ -18,7 +18,7 @@ React is used to build the application with the help of bootstrap. React's hooks
 
 ## Images
 
-The below images are about how our web application looks like looks like.
+The below images are about how our web application looks like.
 
 ![Homepage](/src/assets/homepage.png)
 
