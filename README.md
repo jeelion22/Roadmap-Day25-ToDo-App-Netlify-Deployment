@@ -1,8 +1,40 @@
-# React + Vite
+# React Router Task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+It is a ToDo web application created using REACT where users can add their todo lists. They can make CRUD operations on their reminder todos.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Introduction](#introduction)
+- [Project Images](#Images)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
+## Introduction
+
+React is used to build the application with the help of bootstrap. React's hooks such as useState and useEffect are used for the state and side effects management. All components are wired up together for their functionalities.
+
+[Netlify Deployment link](https://astonishing-arithmetic-b63045.netlify.app/)
+
+## Images
+
+The below images are about how our web application looks like looks like.
+
+![Homepage](/src/assets/homepage)
+![Filters All](/src/assets/img1.png)
+![Filters Not Completed](/src/assets/img2.png)
+![Filters completed](/src/assets/img3.png)
+
+## Installation
+
+No installation is required except a latest web browser.
+
+## Usage
+
+The webpage is a reference for the how to work with formik and react router dom
+
+## License
+
+MIT License
+
+---
