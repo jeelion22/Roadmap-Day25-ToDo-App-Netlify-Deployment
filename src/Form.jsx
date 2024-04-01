@@ -1,14 +1,10 @@
-import React from "react";
-import { useState } from "react";
-
 function Form({ getFormData, values, setValues }) {
- 
-
+  // handles changes of the input field
   const handleChange = (event) => {
     const { name, value } = event.target;
     setValues({ ...values, [name]: value });
   };
-
+  // handles submit
   const handleSubmit = (event) => {
     event.preventDefault();
     getFormData(values);
@@ -19,7 +15,9 @@ function Form({ getFormData, values, setValues }) {
     <div className="container">
       <div className="row mt-3">
         <div className="col-md-12 text-center">
-          <h1>My ToDo</h1>
+          <h1 className="text-success shadow-lg pb-2 mt-2 pt-2 bg-success bg-opacity-25">
+            My ToDo
+          </h1>
         </div>
       </div>
 
@@ -27,9 +25,10 @@ function Form({ getFormData, values, setValues }) {
         <div className="col-md-12 text-center">
           <form
             onSubmit={handleSubmit}
-            className="d-flex justify-content-center gap-3"
+            className="d-flex flex-wrap justify-content-center gap-3"
           >
             <input
+              className="border border-success rounded"
               type="text"
               name="toDoName"
               id="toDoName"
@@ -38,6 +37,7 @@ function Form({ getFormData, values, setValues }) {
               onChange={handleChange}
             />
             <input
+              class="border border-success rounded"
               type="text"
               name="toDoDescription"
               id="toDoDescription"
@@ -45,7 +45,11 @@ function Form({ getFormData, values, setValues }) {
               value={values.toDoDescription}
               onChange={handleChange}
             />
-            <input type="submit" value="Add ToDo" />
+            <input
+              className="bg-success text-white border-0 rounded "
+              type="submit"
+              value="Add ToDo"
+            />
           </form>
         </div>
       </div>

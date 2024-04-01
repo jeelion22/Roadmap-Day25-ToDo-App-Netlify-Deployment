@@ -1,20 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+// This function returns card with todo information
 function Card({ cardInfo, handleDelete, handleEdit, handleStatus }) {
+  const [select, setSelect] =
+    useState("Not Completed"); /* initializes select value */
 
-  const [select, setSelect] = useState("Not Completed")
-  
-  const handleChange = (e)=> {
+  // it updates the select value(status of the todo)
+  // whenever the status changes
+  useEffect(() => {
+    if (cardInfo.status) {
+      setSelect(cardInfo.status);
+    }
+  }, [cardInfo.status]);
+
+  // handles the changes of the select value
+  const handleChange = (e) => {
     const selectedStatus = e.target.value;
-    setSelect(selectedStatus)
+    setSelect(selectedStatus);
 
-   
-
-    handleStatus({...cardInfo, status: selectedStatus})
-  }
+    handleStatus({ ...cardInfo, status: selectedStatus });
+  };
 
   return (
-    <div className="card mb-4" style={{ width: "22rem", height: "11rem" }}>
+    <div
+      className="card mb-4 bg-success bg-opacity-25 shadow"
+      style={{ width: "22rem", height: "12rem" }}
+    >
       <div className="card-body p-2">
         <h5 className="card-title">Name: {cardInfo.toDoName}</h5>
 
@@ -23,9 +34,14 @@ function Card({ cardInfo, handleDelete, handleEdit, handleStatus }) {
           <label htmlFor="status">
             Status:
             <select
-              className="status m-2"
+              className={`status m-2 p-1 border-0 rounded  ${
+                select === "Completed"
+                  ? "text-white bg-success bg-opacity-75"
+                  : "bg-warning bg-opacity-75"
+              }`}
               name="status"
               onChange={handleChange}
+              value={select}
             >
               <option value="Not Completed">Not Completed</option>
               <option value="Completed">Completed</option>
@@ -38,7 +54,7 @@ function Card({ cardInfo, handleDelete, handleEdit, handleStatus }) {
             onClick={() => {
               handleEdit(cardInfo);
             }}
-            className="btn btn-primary me-md-2 border-0"
+            className="btn btn-success me-md-2 border-0"
             type="button"
           >
             Edit
@@ -47,14 +63,13 @@ function Card({ cardInfo, handleDelete, handleEdit, handleStatus }) {
             onClick={() => {
               handleDelete(cardInfo);
             }}
-            className="btn btn-primary me-md-2 border-0"
+            className="btn btn-danger me-md-2 border-0 "
             type="button"
           >
             Delete
           </button>
         </div>
       </div>
-      <div>status: {select}</div>
     </div>
   );
 }

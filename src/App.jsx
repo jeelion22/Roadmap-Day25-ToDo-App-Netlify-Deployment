@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid"; /* generates unique id for todo list*/
+
 import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
 
@@ -9,7 +11,7 @@ function App() {
   const [toDoData, setToDoData] = useState([]);
   const [values, setValues] = useState({ toDoName: "", toDoDescription: "" });
 
-
+  // creates and updates todo information
   const getFormData = (data) => {
     if (data.id) {
       toDoData.map((cardInfo) => {
@@ -18,29 +20,31 @@ function App() {
           cardInfo.toDoDescription = data.toDoDescription;
         }
       });
-
-
     } else {
       const updateData = {
         ...data,
-        id: toDoData.length + 1,
+        id: uuidv4(),
         status: "Not Completed",
       };
       setToDoData([...toDoData, updateData]);
     }
   };
 
+  // handles edit of todo informtion
   const handleEdit = (editCardInfo) => setValues(editCardInfo);
-  
-  const handleStatus = (statusUpdatedCard)=> {
-    // alert(JSON.stringify(statusUpdatedCard, null, 2))
 
-    setToDoData(toDoData.map((cardInfo) => {
-      return cardInfo.id === statusUpdatedCard.id ? statusUpdatedCard : cardInfo
-      
-    }))
-  }
+  // handles the status of the todo
+  const handleStatus = (statusUpdatedCard) => {
+    setToDoData(
+      toDoData.map((cardInfo) => {
+        return cardInfo.id === statusUpdatedCard.id
+          ? statusUpdatedCard
+          : cardInfo;
+      })
+    );
+  };
 
+  // deletes the todo
   const handleDelete = (deleteCardInfo) => {
     const updatedToDoData = toDoData.filter(
       (cardInfo) => cardInfo.id !== deleteCardInfo.id
@@ -56,12 +60,8 @@ function App() {
         handleDelete={handleDelete}
         handleEdit={handleEdit}
         handleStatus={handleStatus}
-   
-
+        setToDoData={setToDoData}
       />
-
-   <input type="button" value="Cick ToDoData" onClick={()=> {alert(JSON.stringify(toDoData, null, 2))}} />
-    
     </>
   );
 }
