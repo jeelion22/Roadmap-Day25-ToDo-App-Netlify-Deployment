@@ -20,9 +20,12 @@ React is used to build the application with the help of bootstrap. React's hooks
 
 The below images are about how our web application looks like looks like.
 
-![Homepage](/src/assets/homepage)
+![Homepage](/src/assets/homepage.png)
+
 ![Filters All](/src/assets/img1.png)
+
 ![Filters Not Completed](/src/assets/img2.png)
+
 ![Filters completed](/src/assets/img3.png)
 
 ## Installation
@@ -31,7 +34,7 @@ No installation is required except a latest web browser.
 
 ## Usage
 
-The webpage is a reference for the how to work with formik and react router dom
+The webpage is a reference for how to handle state management using react hooks
 
 ## License
 
